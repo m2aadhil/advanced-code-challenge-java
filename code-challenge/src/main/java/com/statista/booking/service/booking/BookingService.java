@@ -57,7 +57,8 @@ public class BookingService {
 
     public Booking getBookingById(UUID bookingId) {
         return bookingRepository.findById(bookingId)
-            .orElseThrow(() -> new IllegalArgumentException("Booking not found"));
+            .orElseThrow(
+                () -> new IllegalArgumentException("Booking not found"));
     }
 
     public List<Booking> getBookingsByDepartment(Department department) {

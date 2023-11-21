@@ -8,6 +8,6 @@ public class SalesDepartmentService implements IDepartmentService {
 
     @Override
     public String doBusiness() {
-        return null;
+        return "SALES BUSINESS PERFORMED";
     }
 }

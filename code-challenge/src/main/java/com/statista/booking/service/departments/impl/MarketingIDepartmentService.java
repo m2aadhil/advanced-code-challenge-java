@@ -8,6 +8,7 @@ public class MarketingIDepartmentService implements IDepartmentService {
 
     @Override
     public String doBusiness() {
-        return null;
+
+        return "MARKETING BUSINESS PERFORMED";
     }
 }
