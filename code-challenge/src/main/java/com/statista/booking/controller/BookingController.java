@@ -6,6 +6,7 @@ import com.statista.booking.service.booking.BookingService;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,13 +25,13 @@ public class BookingController {
     private final BookingService bookingService;
 
     @PostMapping
-    public ResponseEntity<Booking> createBooking(@RequestBody BookingRequestDTO booking) {
+    public ResponseEntity<Booking> createBooking(@Valid @RequestBody BookingRequestDTO booking) {
         Booking newBooking = bookingService.createBooking(booking);
         return ResponseEntity.ok(newBooking);
     }
 
     @PutMapping("/{bookingId}")
-    public ResponseEntity<Booking> updateBooking(@PathVariable UUID bookingId, @RequestBody BookingRequestDTO booking) {
+    public ResponseEntity<Booking> updateBooking(@PathVariable UUID bookingId, @Valid @RequestBody BookingRequestDTO booking) {
         Booking updatedBooking = bookingService.updateBooking(bookingId, booking);
         return ResponseEntity.ok(updatedBooking);
     }
